@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khamsa Baraka | Your Trusted Partner in Document Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+  <style>
+    :root {
+      --brown-dark:   #1a0f0a;
+      --brown-deep:   #2e1a0f;
+      --brown-rich:   #6b3a1f;
+      --brown-mid:    #8b5230;
+      --brown-warm:   #c4844a;
+      --brown-light:  #f0ddd0;
+      --cream:        #f9f4ef;
+      --white:        #ffffff;
+      --black:        #0a0604;
+      --charcoal:     #1e1410;
+      --muted:        #6b5a4e;
+      --gold:         #d4a847;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 6%;
+      background: rgba(26,15,10,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212,168,71,0.15);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 700; color: var(--white); letter-spacing: 0.04em; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.25s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--brown-warm) !important; color: #fff !important; padding: 0.5rem 1.4rem; border-radius: 4px; }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+
+    /* HERO */
+    #hero { min-height: 100vh; background: var(--brown-dark); display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 65% 40%, rgba(196,132,74,0.22) 0%, transparent 55%),
+                  radial-gradient(ellipse at 10% 85%, rgba(212,168,71,0.1) 0%, transparent 40%);
+    }
+    .hero-content { position: relative; z-index: 2; padding: 0 6%; padding-top: 9rem; max-width: 820px; }
+    .hero-eyebrow { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; display: flex; align-items: center; gap: 0.8rem; }
+    .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 5.2rem); font-weight: 700; line-height: 1.05; color: var(--white); margin-bottom: 1.6rem; }
+    .hero-title em { color: var(--brown-warm); font-style: normal; }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 560px; margin-bottom: 2.8rem; }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-primary { background: var(--brown-warm); color: #fff; padding: 0.9rem 2.2rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.92rem; border: 2px solid var(--brown-warm); transition: all 0.28s; }
+    .btn-primary:hover { background: transparent; color: var(--brown-warm); }
+    .btn-ghost { background: transparent; color: rgba(255,255,255,0.75); padding: 0.9rem 2.2rem; border-radius: 4px; text-decoration: none; font-weight: 500; font-size: 0.92rem; border: 2px solid rgba(255,255,255,0.2); transition: all 0.28s; }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .gcc-flags { display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; }
+    .gcc-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-right: 0.3rem; }
+    .flag-badge { display: flex; align-items: center; gap: 0.45rem; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 30px; padding: 0.32rem 0.85rem; font-size: 0.81rem; color: rgba(255,255,255,0.72); font-weight: 500; transition: background 0.2s; }
+    .flag-badge:hover { background: rgba(255,255,255,0.14); }
+
+    /* SECTIONS */
+    section { padding: 7rem 6%; }
+    .section-label { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brown-warm); display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+    .section-label::before { content: ''; width: 24px; height: 1px; background: var(--brown-warm); }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.15; color: var(--charcoal); margin-bottom: 1.4rem; }
+    .section-title.light { color: var(--white); }
+
+    /* ABOUT */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-text p { color: var(--muted); line-height: 1.88; font-size: 1rem; margin-bottom: 1.2rem; }
+    .about-text p strong { color: var(--charcoal); font-weight: 600; }
+    .gcc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.7rem; margin-top: 2rem; }
+    .gcc-country { display: flex; align-items: center; gap: 0.5rem; background: var(--brown-light); border-radius: 8px; padding: 0.6rem 0.9rem; font-size: 0.84rem; font-weight: 500; color: var(--brown-rich); }
+    .gcc-country .flag { font-size: 1.2rem; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .stat-card { background: var(--cream); border-radius: 8px; padding: 1.8rem 1.4rem; border-left: 3px solid var(--brown-warm); }
+    .stat-card .num { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 700; color: var(--brown-rich); line-height: 1; }
+    .stat-card .desc { font-size: 0.84rem; color: var(--muted); margin-top: 0.4rem; }
+
+    /* VISION */
+    #vision { background: var(--brown-dark); position: relative; overflow: hidden; }
+    #vision::before { content: ''; position: absolute; top: -30%; right: -10%; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(196,132,74,0.15) 0%, transparent 70%); }
+    .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; position: relative; z-index: 1; }
+    .vm-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: 12px; padding: 3rem 2.4rem; transition: background 0.3s; }
+    .vm-card:hover { background: rgba(255,255,255,0.09); }
+    .vm-icon { width: 48px; height: 48px; border-radius: 10px; background: var(--brown-warm); display: flex; align-items: center; justify-content: center; margin-bottom: 1.6rem; font-size: 1.4rem; }
+    .vm-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 700; color: var(--gold); margin-bottom: 1rem; }
+    .vm-card p { color: rgba(255,255,255,0.65); line-height: 1.88; font-size: 0.97rem; }
+
+    /* SERVICES */
+    #services { background: var(--cream); }
+    .services-intro { max-width: 560px; margin-bottom: 3.5rem; }
+    .services-intro p { color: var(--muted); line-height: 1.8; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .service-card { background: var(--white); border-radius: 12px; border: 1px solid rgba(0,0,0,0.07); overflow: hidden; transition: all 0.3s; }
+    .service-card:hover { box-shadow: 0 16px 48px rgba(46,26,15,0.14); transform: translateY(-4px); }
+    .service-img-wrap { overflow: hidden; height: 210px; position: relative; }
+    .service-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .service-card:hover .service-img { transform: scale(1.05); }
+    .service-img-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 50px; background: linear-gradient(transparent, var(--white)); }
+    .service-body { padding: 1.6rem 2rem 2rem; }
+    .service-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--brown-light); line-height: 1; margin-bottom: 0.4rem; }
+    .service-card h3 { font-size: 1.08rem; font-weight: 600; color: var(--brown-dark); margin-bottom: 0.65rem; }
+    .service-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.75; margin-bottom: 1.1rem; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag { font-size: 0.74rem; color: var(--brown-rich); background: var(--brown-light); padding: 0.25rem 0.72rem; border-radius: 20px; font-weight: 500; }
+
+    /* ACHIEVEMENTS */
+    #achievements { background: var(--white); }
+    .ach-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center; }
+    .ach-numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .ach-item { text-align: center; }
+    .ach-num { font-family: 'Cormorant Garamond', serif; font-size: 3.4rem; font-weight: 700; color: var(--brown-dark); line-height: 1; }
+    .ach-num sup { font-size: 1.6rem; }
+    .ach-label { font-size: 0.84rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.4; }
+    .ach-list { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
+    .ach-list li { display: flex; gap: 1rem; align-items: flex-start; font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+    .ach-list li::before { content: '✓'; min-width: 22px; height: 22px; background: var(--brown-warm); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; margin-top: 2px; flex-shrink: 0; }
+
+    /* WHY */
+    #why { background: var(--brown-dark); padding: 5rem 6%; }
+    .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .why-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 2rem 1.6rem; text-align: center; transition: background 0.3s; }
+    .why-card:hover { background: rgba(255,255,255,0.1); }
+    .why-card .icon { font-size: 2rem; margin-bottom: 1rem; }
+    .why-card h4 { font-size: 1rem; font-weight: 600; color: var(--gold); margin-bottom: 0.6rem; }
+    .why-card p { font-size: 0.85rem; color: rgba(255,255,255,0.58); line-height: 1.7; }
+
+/* CONTACT */
+#contact { background: var(--cream); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  align-items: start;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 1.5rem;
+}
+.contact-item > div:last-child {
+  flex: 1;
+  min-width: 0;
+}
+.contact-item > div:last-child {
+  flex: 1;
+  min-width:0;
+}
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--brown-dark);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.contact-item strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+.contact-item span {
+  font-size: 0.93rem;
+  color: var(--charcoal);
+  line-height: 1.8;
+}
+html[dir="rtl"] #contact {
+  text-align: right;
+}
+html[dir="rtl"] .contact-item {
+  flex-direction: row-reverse;
+}
+html[dir="rtl"] .section-label {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+.ltr-text {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+  text-align: left;
+}
+
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--brown-warm); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    /* intl-tel-input */
+    .iti { width: 100%; }
+    .iti__selected-flag { background: var(--white); border-right: 1px solid rgba(0,0,0,0.1); }
+    #phone { padding-left: 90px !important; }
+
+    .btn-submit { background: var(--brown-dark); color: #fff; padding: 1rem 2.2rem; border: none; border-radius: 6px; font-family: inherit; font-size: 0.95rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; transition: background 0.28s; align-self: flex-start; }
+    .btn-submit:hover { background: var(--brown-warm); }
+
+    /* FOOTER */
+    footer { background: var(--black); color: rgba(255,255,255,0.4); padding: 2.5rem 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
+    .footer-brand span { color: var(--gold); }
+    footer p { font-size: 0.82rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.38); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .about-grid, .vm-grid, .ach-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--brown-dark); padding: 1.5rem 6%; gap: 1.2rem; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 560px) {
+      section { padding: 5rem 5%; }
+      .why-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .gcc-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* LANGUAGE SWITCHER */
+    .lang-switcher {
+      display: flex; align-items: center; gap: 0.3rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 30px; padding: 0.25rem 0.4rem;
+    }
+    .lang-btn {
+      background: none; border: none; cursor: pointer;
+      padding: 0.28rem 0.65rem; border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5); transition: all 0.22s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .lang-btn.active {
+      background: var(--brown-warm); color: #fff;
+    }
+    .lang-btn:hover:not(.active) { color: rgba(255,255,255,0.9); }
+
+    /* RTL support for Arabic */
+    body.lang-ar { font-family: 'Noto Sans Arabic', sans-serif; direction: rtl; }
+
+    /* Section labels (flex row) - push to right and hide left decorative line */
+    body.lang-ar .section-label { justify-content: flex-end; flex-direction: row-reverse; }
+    body.lang-ar .section-label::before { display: none; }
+
+    /* Hero */
+    body.lang-ar .hero-eyebrow { justify-content: flex-end; flex-direction: row-reverse; text-align: right; }
+    body.lang-ar .hero-eyebrow::before { display: none; }
+    body.lang-ar .hero-content { text-align: right; }
+    body.lang-ar .hero-sub { text-align: right; }
+    body.lang-ar .hero-buttons { justify-content: flex-end; }
+    body.lang-ar .gcc-flags { flex-direction: row-reverse; justify-content: flex-end; }
+
+    /* Nav */
+    body.lang-ar nav { flex-direction: row-reverse; }
+    body.lang-ar .nav-links { flex-direction: row-reverse; }
+
+    /* About */
+    body.lang-ar .about-text { text-align: right; }
+    body.lang-ar .gcc-country { flex-direction: row-reverse; }
+    body.lang-ar .stat-card { border-left: none; border-right: 3px solid var(--brown-warm); text-align: right; }
+
+    /* Vision/Mission cards */
+    body.lang-ar .vm-card { text-align: right; }
+
+    /* Services */
+    body.lang-ar .service-body { text-align: right; }
+    body.lang-ar .service-tags { justify-content: flex-end; }
+    body.lang-ar .services-intro { text-align: right; }
+
+    /* Achievements */
+    body.lang-ar .ach-list li { flex-direction: row-reverse; text-align: right; }
+    body.lang-ar .ach-item { text-align: right; }
+    body.lang-ar .ach-grid > div { text-align: right; }
+
+    /* Why cards */
+    body.lang-ar .why-card { text-align: right; }
+
+/* Contact info — proper mirrored Arabic layout */
+body.lang-ar .contact-item {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+body.lang-ar .contact-item > div:last-child {
+  flex: 0 1 auto;
+}
+body.lang-ar .contact-item > div {
+  text-align: right;
+}
+body.lang-ar .contact-item strong {
+  display: block;
+  text-align: right;
+}
+body.lang-ar .contact-item span {
+  text-align: right;
+}
+body.lang-ar #contact .fade-up {
+  text-align: right;
+}
+body.lang-ar .contact-grid {
+  direction: rtl;
+}
+
+    /* Contact form */
+    body.lang-ar .form-group { text-align: right; }
+    body.lang-ar .form-group input,
+    body.lang-ar .form-group textarea,
+    body.lang-ar .form-group select { text-align: right; direction: rtl; }
+    body.lang-ar .btn-submit { align-self: flex-end; }
+
+    /* Footer */
+    body.lang-ar footer { flex-direction: row-reverse; }
+
+    /* Chinese font */
+    body.lang-zh { font-family: 'Noto Sans SC', sans-serif; }
+
+    /* Language visibility - controlled via body class */
+    body.lang-en [data-lang="ar"],
+    body.lang-en [data-lang="zh"] { display: none !important; }
+
+    body.lang-ar [data-lang="en"],
+    body.lang-ar [data-lang="zh"] { display: none !important; }
+
+    body.lang-zh [data-lang="en"],
+    body.lang-zh [data-lang="ar"] { display: none !important; }
+  </style>
+</head>
+<body class="lang-en">
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Khamsa <span>Baraka</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about"><span data-lang="en">About</span><span data-lang="ar">من نحن</span><span data-lang="zh">关于我们</span></a></li>
+    <li><a href="#vision"><span data-lang="en">Vision</span><span data-lang="ar">رؤيتنا</span><span data-lang="zh">愿景</span></a></li>
+    <li><a href="#services"><span data-lang="en">Services</span><span data-lang="ar">خدماتنا</span><span data-lang="zh">服务</span></a></li>
+    <li><a href="#achievements"><span data-lang="en">Achievements</span><span data-lang="ar">إنجازاتنا</span><span data-lang="zh">成就</span></a></li>
+    <li><a href="#contact" class="nav-cta"><span data-lang="en">Contact Us</span><span data-lang="ar">تواصل معنا</span><span data-lang="zh">联系我们</span></a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span data-lang="en">Your Trusted Partner in Document Management</span>
+      <span data-lang="ar">شريكك الموثوق في إدارة الوثائق</span>
+      <span data-lang="zh">您值得信赖的文件管理合作伙伴</span>
+    </div>
+    <h1 class="hero-title">
+      <span data-lang="en">Simplifying Business<br>Across the <em>Gulf Region</em></span>
+      <span data-lang="ar">تبسيط الأعمال<br>عبر <em>منطقة الخليج</em></span>
+      <span data-lang="zh">简化业务<br>遍及<em>海湾地区</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="en">Khamsa Baraka provides comprehensive corporate services — from documents clearing and company registration to manpower and vendor solutions — across the GCC.</span>
+      <span data-lang="ar">تقدم شركة خمسة بركة خدمات مؤسسية شاملة — من تخليص المستندات وتسجيل الشركات إلى حلول القوى العاملة والموردين — في جميع أنحاء دول مجلس التعاون الخليجي.</span>
+      <span data-lang="zh">祥和五指公司提供全面的企业服务——从文件清关、公司注册到人力资源和供应商解决方案——覆盖整个海湾合作委员会地区。</span>
+    </p>
+    <div class="hero-buttons">
+      <a href="#services" class="btn-primary">
+        <span data-lang="en">Explore Our Services</span>
+        <span data-lang="ar">استكشف خدماتنا</span>
+        <span data-lang="zh">探索我们的服务</span>
+      </a>
+      <a href="#contact" class="btn-ghost">
+        <span data-lang="en">Get in Touch</span>
+        <span data-lang="ar">تواصل معنا</span>
+        <span data-lang="zh">联系我们</span>
+      </a>
+    </div>
+    <div class="gcc-flags">
+      <span class="gcc-label">
+        <span data-lang="en">Operating In</span>
+        <span data-lang="ar">نعمل في</span>
+        <span data-lang="zh">运营地区</span>
+      </span>
+      <div class="flag-badge">🇸🇦 Saudi Arabia</div>
+      <div class="flag-badge">🇦🇪 UAE</div>
+      <div class="flag-badge">🇶🇦 Qatar</div>
+      <div class="flag-badge">🇧🇭 Bahrain</div>
+      <div class="flag-badge">🇰🇼 Kuwait</div>
+      <div class="flag-badge">🇴🇲 Oman</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <div class="section-label">
+        <span data-lang="en">Who We Are</span>
+        <span data-lang="ar">من نحن</span>
+        <span data-lang="zh">关于我们</span>
+      </div>
+      <h2 class="section-title">
+        <span data-lang="en">A Trusted Business Solutions Provider</span>
+        <span data-lang="ar">مزود حلول أعمال موثوق</span>
+        <span data-lang="zh">值得信赖的商业解决方案提供商</span>
+      </h2>
+      <p>
+        <strong>Khamsa Baraka Company</strong>
+        <span data-lang="en"> is a trusted business solutions provider specializing in comprehensive corporate services across the Gulf region. We are dedicated to simplifying business operations for clients, ensuring compliance, efficiency, and seamless execution in every project.</span>
+        <span data-lang="ar"> هي مزود حلول أعمال موثوق متخصص في الخدمات المؤسسية الشاملة في منطقة الخليج. نحن ملتزمون بتبسيط العمليات التجارية للعملاء وضمان الامتثال والكفاءة والتنفيذ السلس في كل مشروع.</span>
+        <span data-lang="zh"> 是一家值得信赖的商业解决方案提供商，专注于海湾地区的综合企业服务。我们致力于为客户简化业务运营，确保每个项目的合规性、效率和无缝执行。</span>
+      </p>
+      <p>
+        <span data-lang="en">With deep expertise in local regulations and business environments, we deliver tailored solutions that meet the unique requirements of every GCC market.</span>
+        <span data-lang="ar">بفضل خبرتنا العميقة في اللوائح المحلية وبيئات الأعمال، نقدم حلولاً مخصصة تلبي المتطلبات الفريدة لكل سوق خليجي.</span>
+        <span data-lang="zh">凭借对当地法规和商业环境的深厚专业知识，我们提供量身定制的解决方案，满足每个海湾合作委员会市场的独特需求。</span>
+      </p>
+      <div class="gcc-grid">
+        <div class="gcc-country"><span class="flag">🇸🇦</span> Saudi Arabia</div>
+        <div class="gcc-country"><span class="flag">🇦🇪</span> UAE</div>
+        <div class="gcc-country"><span class="flag">🇶🇦</span> Qatar</div>
+        <div class="gcc-country"><span class="flag">🇧🇭</span> Bahrain</div>
+        <div class="gcc-country"><span class="flag">🇰🇼</span> Kuwait</div>
+        <div class="gcc-country"><span class="flag">🇴🇲</span> Oman</div>
+      </div>
+    </div>
+    <div class="about-stats fade-up delay-2">
+      <div class="stat-card"><div class="num">500<sup>+</sup></div><div class="desc"><span data-lang="en">Company Registrations Facilitated</span><span data-lang="ar">تسجيل شركات تم تيسيره</span><span data-lang="zh">协助公司注册</span></div></div>
+      <div class="stat-card"><div class="num">10K<sup>+</sup></div><div class="desc"><span data-lang="en">Official Documents Processed</span><span data-lang="ar">وثائق رسمية تمت معالجتها</span><span data-lang="zh">处理官方文件</span></div></div>
+      <div class="stat-card"><div class="num">98<sup>%</sup></div><div class="desc"><span data-lang="en">Document Approval Rate</span><span data-lang="ar">معدل الموافقة على الوثائق</span><span data-lang="zh">文件审批率</span></div></div>
+      <div class="stat-card"><div class="num">200<sup>+</sup></div><div class="desc"><span data-lang="en">Vendor & Supplier Partners</span><span data-lang="ar">شركاء من الموردين والمزودين</span><span data-lang="zh">供应商合作伙伴</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section id="vision">
+  <div class="section-label" style="color:var(--gold);"><span style="display:inline-block;width:24px;height:1px;background:var(--gold);"></span><span data-lang="en">Our Direction</span><span data-lang="ar">توجهنا</span><span data-lang="zh">我们的方向</span></div>
+  <h2 class="section-title light" style="margin-bottom:3rem;"><span data-lang="en">Driven by Purpose</span><span data-lang="ar">مدفوعون بالهدف</span><span data-lang="zh">目标驱动</span></h2>
+  <div class="vm-grid">
+    <div class="vm-card fade-up">
+      <div class="vm-icon">🎯</div>
+      <h3><span data-lang="en">Our Vision</span><span data-lang="ar">رؤيتنا</span><span data-lang="zh">我们的愿景</span></h3>
+      <p><span data-lang="en">To be the leading business solutions partner in the Gulf, recognized for excellence in service delivery, innovation, and customer satisfaction.</span><span data-lang="ar">أن نكون الشريك الرائد في حلول الأعمال في الخليج، معروفين بالتميز في تقديم الخدمات والابتكار ورضا العملاء.</span><span data-lang="zh">成为海湾地区领先的商业解决方案合作伙伴，以卓越的服务、创新和客户满意度著称。</span></p><br>
+      <p><span data-lang="en">To be the most trusted gateway for global enterprise in the Middle East, transforming the complexity of Gulf market entry into a seamless journey of growth and sustainable prosperity.</span><span data-lang="ar">أن نكون البوابة الأكثر موثوقية للمؤسسات العالمية في الشرق الأوسط، وتحويل تعقيدات دخول السوق الخليجية إلى رحلة سلسة من النمو والازدهار المستدام.</span><span data-lang="zh">成为中东最值得信赖的全球企业进入门户，将进入海湾市场的复杂性转化为顺畅的增长与可持续繁荣之旅。</span></p>
+    </div>
+    <div class="vm-card fade-up delay-2">
+      <div class="vm-icon">🚀</div>
+      <h3><span data-lang="en">Our Mission</span><span data-lang="ar">مهمتنا</span><span data-lang="zh">我们的使命</span></h3>
+      <p><span data-lang="en">To empower businesses by providing world-class administrative, logistical, and human capital solutions. We are committed to navigating the regulatory landscapes across the GCC with absolute integrity.</span><span data-lang="ar">تمكين الشركات من خلال تقديم حلول إدارية ولوجستية ورأس المال البشري على مستوى عالمي. نحن ملتزمون بالتعامل مع الأطر التنظيمية في دول مجلس التعاون الخليجي بنزاهة مطلقة.</span><span data-lang="zh">通过提供世界一流的行政、物流和人力资本解决方案，赋能企业发展。我们致力于以绝对诚信应对海湾合作委员会各地区的监管环境。</span></p><br>
+      <p><span data-lang="en">Ensuring our clients achieve operational excellence through expert document clearing, strategic registration, and premium resource procurement.</span><span data-lang="ar">ضمان تحقيق عملائنا لتميز تشغيلي من خلال تخليص المستندات الخبير، والتسجيل الاستراتيجي، وتوريد الموارد المتميزة.</span><span data-lang="zh">通过专业文件清关、战略注册和优质资源采购，确保客户实现卓越运营。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-intro fade-up">
+    <div class="section-label"><span data-lang="en">What We Offer</span><span data-lang="ar">ما نقدمه</span><span data-lang="zh">我们的服务</span></div>
+    <h2 class="section-title"><span data-lang="en">Our Core Services</span><span data-lang="ar">خدماتنا الأساسية</span><span data-lang="zh">核心服务</span></h2>
+    <p><span data-lang="en">End-to-end corporate solutions designed to help businesses launch, operate, and grow across the Gulf with minimal friction and maximum confidence.</span><span data-lang="ar">حلول مؤسسية متكاملة مصممة لمساعدة الشركات على الإطلاق والتشغيل والنمو في الخليج بأقل قدر من العوائق وأقصى قدر من الثقة.</span><span data-lang="zh">端到端企业解决方案，旨在帮助企业以最少阻力、最大信心在海湾地区启动、运营和发展。</span></p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card fade-up delay-1">
+      <div class="service-img-wrap">
+        <img class="service-img" src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&q=80" alt="Documents Clearing"/>
+      </div>
+      <div class="service-body">
+        <div class="service-num">01</div>
+        <h3><span data-lang="en">Documents Clearing</span><span data-lang="ar">تخليص المستندات</span><span data-lang="zh">文件清关</span></h3>
+        <p><span data-lang="en">Comprehensive document clearing services to ensure smooth and compliant business operations across all GCC countries.</span><span data-lang="ar">خدمات تخليص مستندات شاملة لضمان عمليات تجارية سلسة ومتوافقة في جميع دول مجلس التعاون الخليجي.</span><span data-lang="zh">全面的文件清关服务，确保在所有海湾合作委员会国家顺畅合规地开展业务。</span></p>
+        <div class="service-tags">
+          <span class="tag"><span data-lang="en">Visa Processing</span><span data-lang="ar">معالجة التأشيرات</span><span data-lang="zh">签证办理</span></span>
+          <span class="tag"><span data-lang="en">Trade Licenses</span><span data-lang="ar">التراخيص التجارية</span><span data-lang="zh">贸易许可证</span></span>
+          <span class="tag"><span data-lang="en">Gov't Approvals</span><span data-lang="ar">الموافقات الحكومية</span><span data-lang="zh">政府审批</span></span>
+          <span class="tag"><span data-lang="en">Legal Translation</span><span data-lang="ar">الترجمة القانونية</span><span data-lang="zh">法律翻译</span></span>
+          <span class="tag"><span data-lang="en">PRO Services</span><span data-lang="ar">خدمات PRO</span><span data-lang="zh">公关服务</span></span>
+          <span class="tag"><span data-lang="en">Attestation</span><span data-lang="ar">التصديق</span><span data-lang="zh">公证认证</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card fade-up delay-2">
+      <div class="service-img-wrap">
+        <img class="service-img" src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80" alt="Company Registration"/>
+      </div>
+      <div class="service-body">
+        <div class="service-num">02</div>
+        <h3><span data-lang="en">New Company Registration</span><span data-lang="ar">تسجيل الشركات الجديدة</span><span data-lang="zh">新公司注册</span></h3>
+        <p><span data-lang="en">Specializing in company formation across the GCC, assisting entrepreneurs and corporations in establishing their businesses efficiently.</span><span data-lang="ar">متخصصون في تأسيس الشركات في دول مجلس التعاون الخليجي، ومساعدة رواد الأعمال والشركات في إقامة أعمالهم بكفاءة.</span><span data-lang="zh">专注于海湾合作委员会各地区的公司成立，协助创业者和企业高效建立业务。</span></p>
+        <div class="service-tags">
+          <span class="tag"><span data-lang="en">Business Setup</span><span data-lang="ar">إعداد الأعمال</span><span data-lang="zh">业务设立</span></span>
+          <span class="tag"><span data-lang="en">Trade Name</span><span data-lang="ar">الاسم التجاري</span><span data-lang="zh">商业名称</span></span>
+          <span class="tag"><span data-lang="en">Free Zone</span><span data-lang="ar">المنطقة الحرة</span><span data-lang="zh">自由区</span></span>
+          <span class="tag"><span data-lang="en">Mainland</span><span data-lang="ar">البر الرئيسي</span><span data-lang="zh">大陆地区</span></span>
+          <span class="tag"><span data-lang="en">Corporate Structuring</span><span data-lang="ar">الهيكلة المؤسسية</span><span data-lang="zh">企业架构</span></span>
+          <span class="tag"><span data-lang="en">Local Sponsorship</span><span data-lang="ar">الرعاية المحلية</span><span data-lang="zh">本地担保</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card fade-up delay-3">
+      <div class="service-img-wrap">
+        <img class="service-img" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Vendor and Equipment Supply"/>
+      </div>
+      <div class="service-body">
+        <div class="service-num">03</div>
+        <h3><span data-lang="en">Vendor & Equipment Supply</span><span data-lang="ar">توريد الموردين والمعدات</span><span data-lang="zh">供应商与设备供应</span></h3>
+        <p><span data-lang="en">A reliable supplier for corporate equipment and vendor sourcing, ensuring clients have access to high-quality materials and operational tools.</span><span data-lang="ar">مورد موثوق للمعدات المؤسسية والحصول على الموردين، مما يضمن حصول العملاء على مواد عالية الجودة وأدوات تشغيلية.</span><span data-lang="zh">可靠的企业设备和供应商采购供应商，确保客户获得高质量材料和运营工具。</span></p>
+        <div class="service-tags">
+          <span class="tag"><span data-lang="en">Equipment Procurement</span><span data-lang="ar">شراء المعدات</span><span data-lang="zh">设备采购</span></span>
+          <span class="tag"><span data-lang="en">Vendor Management</span><span data-lang="ar">إدارة الموردين</span><span data-lang="zh">供应商管理</span></span>
+          <span class="tag"><span data-lang="en">Supply Chain</span><span data-lang="ar">سلسلة التوريد</span><span data-lang="zh">供应链</span></span>
+          <span class="tag"><span data-lang="en">Office Setup</span><span data-lang="ar">إعداد المكتب</span><span data-lang="zh">办公室设置</span></span>
+          <span class="tag"><span data-lang="en">Industrial Sourcing</span><span data-lang="ar">المصادر الصناعية</span><span data-lang="zh">工业采购</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card fade-up delay-4">
+      <div class="service-img-wrap">
+        <img class="service-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Manpower Services"/>
+      </div>
+      <div class="service-body">
+        <div class="service-num">04</div>
+        <h3><span data-lang="en">Manpower Services</span><span data-lang="ar">خدمات القوى العاملة</span><span data-lang="zh">人力资源服务</span></h3>
+        <p><span data-lang="en">Skilled and unskilled manpower solutions tailored to client needs across various industries, from recruitment to full workforce mobilization.</span><span data-lang="ar">حلول للقوى العاملة الماهرة وغير الماهرة مصممة وفق احتياجات العملاء في مختلف الصناعات، من التوظيف إلى التعبئة الكاملة للقوى العاملة.</span><span data-lang="zh">针对各行业客户需求定制的技术性和非技术性人力资源解决方案，从招聘到全面劳动力调配。</span></p>
+        <div class="service-tags">
+          <span class="tag"><span data-lang="en">Recruitment</span><span data-lang="ar">التوظيف</span><span data-lang="zh">招聘</span></span>
+          <span class="tag"><span data-lang="en">Workforce Outsourcing</span><span data-lang="ar">الاستعانة بمصادر خارجية</span><span data-lang="zh">劳动力外包</span></span>
+          <span class="tag"><span data-lang="en">Visa & Labor Docs</span><span data-lang="ar">التأشيرات ووثائق العمل</span><span data-lang="zh">签证与劳工文件</span></span>
+          <span class="tag"><span data-lang="en">HR Solutions</span><span data-lang="ar">حلول الموارد البشرية</span><span data-lang="zh">人力资源解决方案</span></span>
+          <span class="tag"><span data-lang="en">Project Mobilization</span><span data-lang="ar">تعبئة المشاريع</span><span data-lang="zh">项目动员</span></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="ach-grid">
+    <div class="fade-up">
+      <div class="section-label"><span data-lang="en">Track Record</span><span data-lang="ar">سجلنا</span><span data-lang="zh">业绩记录</span></div>
+      <h2 class="section-title"><span data-lang="en">Strategic Achievements</span><span data-lang="ar">الإنجازات الاستراتيجية</span><span data-lang="zh">战略成就</span></h2>
+      <div class="ach-numbers" style="margin-top:2.5rem;">
+        <div class="ach-item"><div class="ach-num">500<sup>+</sup></div><div class="ach-label"><span data-lang="en">Companies Registered</span><span data-lang="ar">شركات مسجلة</span><span data-lang="zh">注册公司</span></div></div>
+        <div class="ach-item"><div class="ach-num">10K<sup>+</sup></div><div class="ach-label"><span data-lang="en">Documents Processed</span><span data-lang="ar">وثائق معالجة</span><span data-lang="zh">处理文件</span></div></div>
+        <div class="ach-item"><div class="ach-num">98<sup>%</sup></div><div class="ach-label"><span data-lang="en">Approval Rate</span><span data-lang="ar">معدل الموافقة</span><span data-lang="zh">审批率</span></div></div>
+        <div class="ach-item"><div class="ach-num">200<sup>+</sup></div><div class="ach-label"><span data-lang="en">Vendor Partnerships</span><span data-lang="ar">شراكات الموردين</span><span data-lang="zh">供应商合作伙伴</span></div></div>
+      </div>
+    </div>
+    <div class="fade-up delay-2">
+      <ul class="ach-list">
+        <li><span data-lang="en">Successfully facilitated over 500 company registrations across Saudi Arabia, UAE, Qatar, Bahrain, Kuwait, and Oman.</span><span data-lang="ar">نجحنا في تيسير تسجيل أكثر من 500 شركة في السعودية والإمارات وقطر والبحرين والكويت وعُمان.</span><span data-lang="zh">成功协助在沙特阿拉伯、阿联酋、卡塔尔、巴林、科威特和阿曼注册超过500家公司。</span></li>
+        <li><span data-lang="en">Processed more than 10,000 official documents with a 98% approval rate.</span><span data-lang="ar">معالجة أكثر من 10,000 وثيقة رسمية بمعدل موافقة 98%.</span><span data-lang="zh">以98%的审批率处理了超过10,000份官方文件。</span></li>
+        <li><span data-lang="en">Established partnerships with over 200 vendors and suppliers for reliable, cost-effective procurement.</span><span data-lang="ar">إقامة شراكات مع أكثر من 200 مورد وموزع لضمان توريد موثوق وفعال من حيث التكلفة.</span><span data-lang="zh">与200多家供应商建立合作伙伴关系，实现可靠且具成本效益的采购。</span></li>
+        <li><span data-lang="en">Provided manpower services to leading construction, logistics, and service companies across the Gulf.</span><span data-lang="ar">تقديم خدمات القوى العاملة لشركات البناء واللوجستيات والخدمات الرائدة في الخليج.</span><span data-lang="zh">为海湾地区领先的建筑、物流和服务公司提供人力资源服务。</span></li>
+        <li><span data-lang="en">Recognized for exceptional client satisfaction by multiple business partners and government entities.</span><span data-lang="ar">تم الاعتراف بنا لرضا العملاء الاستثنائي من قبل شركاء الأعمال والجهات الحكومية المتعددة.</span><span data-lang="zh">因出色的客户满意度获得多个商业合作伙伴和政府机构的认可。</span></li>
+        <li><span data-lang="en">Delivered end-to-end business setup solutions for startups and international investors entering the GCC market.</span><span data-lang="ar">تقديم حلول إعداد الأعمال الشاملة للشركات الناشئة والمستثمرين الدوليين الدخيلين إلى سوق مجلس التعاون الخليجي.</span><span data-lang="zh">为进入海湾合作委员会市场的初创公司和国际投资者提供端到端业务设立解决方案。</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-label" style="color:var(--gold);"><span style="display:inline-block;width:24px;height:1px;background:var(--gold);"></span><span data-lang="en">Why Khamsa Baraka</span><span data-lang="ar">لماذا خمسة بركة</span><span data-lang="zh">为什么选择祥和五指</span></div>
+  <h2 class="section-title light"><span data-lang="en">The Khamsa Baraka Advantage</span><span data-lang="ar">ميزة خمسة بركة</span><span data-lang="zh">祥和五指的优势</span></h2>
+  <div class="why-grid">
+    <div class="why-card fade-up delay-1"><div class="icon">🧠</div><h4><span data-lang="en">Deep Expertise</span><span data-lang="ar">خبرة عميقة</span><span data-lang="zh">深厚专业知识</span></h4><p><span data-lang="en">In-depth knowledge of Gulf region regulations, laws, and business environments across all GCC countries.</span><span data-lang="ar">معرفة معمقة بلوائح منطقة الخليج وقوانينها وبيئات الأعمال في جميع دول مجلس التعاون الخليجي.</span><span data-lang="zh">深入了解海湾地区各海合会国家的法规、法律和商业环境。</span></p></div>
+    <div class="why-card fade-up delay-2"><div class="icon">🤝</div><h4><span data-lang="en">Personalized Service</span><span data-lang="ar">خدمة شخصية</span><span data-lang="zh">个性化服务</span></h4><p><span data-lang="en">Tailored solutions designed to meet your specific business goals — never one-size-fits-all.</span><span data-lang="ar">حلول مخصصة مصممة لتلبية أهدافك التجارية المحددة — ليست حلولاً جاهزة أبداً.</span><span data-lang="zh">量身定制的解决方案，旨在满足您的特定业务目标——绝非千篇一律。</span></p></div>
+    <div class="why-card fade-up delay-3"><div class="icon">⚡</div><h4><span data-lang="en">Timely Delivery</span><span data-lang="ar">تسليم في الوقت المحدد</span><span data-lang="zh">准时交付</span></h4><p><span data-lang="en">Efficient processing, proactive follow-up, and a firm commitment to meeting deadlines every time.</span><span data-lang="ar">معالجة فعالة ومتابعة استباقية والتزام راسخ بالوفاء بالمواعيد النهائية في كل مرة.</span><span data-lang="zh">高效处理、主动跟进，以及每次都严格遵守截止日期的坚定承诺。</span></p></div>
+    <div class="why-card fade-up delay-4"><div class="icon">🛡️</div><h4><span data-lang="en">Absolute Integrity</span><span data-lang="ar">نزاهة مطلقة</span><span data-lang="zh">绝对诚信</span></h4><p><span data-lang="en">Transparent, honest, and ethical practices in every aspect of our work — your trust is our foundation.</span><span data-lang="ar">ممارسات شفافة وصادقة وأخلاقية في كل جانب من جوانب عملنا — ثقتك هي أساسنا.</span><span data-lang="zh">在工作的每个方面保持透明、诚实和道德——您的信任是我们的基础。</span></p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="fade-up">
+      <div class="section-label"><span data-lang="en">Get In Touch</span><span data-lang="ar">تواصل معنا</span><span data-lang="zh">联系我们</span></div>
+      <h2 class="section-title"><span data-lang="en">Start Your Business Journey</span><span data-lang="ar">ابدأ رحلتك التجارية</span><span data-lang="zh">开启您的商业旅程</span></h2>
+      <p style="color:var(--muted);line-height:1.8;margin-bottom:2rem;">
+        <span data-lang="en">Contact us from anywhere in the world. We support clients in Arabic, English, and Chinese — and are ready to guide you through every step.</span>
+        <span data-lang="ar">تواصل معنا من أي مكان في العالم. نقدم الدعم للعملاء باللغتين العربية والإنجليزية والصينية — ونحن مستعدون لإرشادك خلال كل خطوة.</span>
+        <span data-lang="zh">从世界任何地方联系我们。我们以阿拉伯语、英语和中文为客户提供支持——随时准备引导您完成每一步。</span>
+      </p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <strong><span data-lang="en">Address</span><span data-lang="ar">العنوان</span><span data-lang="zh">地址</span></strong>
+            <span class="ltr-text">Shop 18, Khilad Ibn Rafee Rd, Al Aziziyah,<br>Riyadh, Kingdom of Saudi Arabia</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <strong><span data-lang="en">Phone / WhatsApp</span><span data-lang="ar">هاتف / واتساب</span><span data-lang="zh">电话 / WhatsApp</span></strong>
+            <span class="ltr-text">🇸🇦 Arabic: +966-572076980</span><br>
+            <span class="ltr-text">🇬🇧 English: +966-502872313</span><br>
+            <span class="ltr-text">🇨🇳 Chinese: +971-585668849</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <strong><span data-lang="en">Email</span><span data-lang="ar">البريد الإلكتروني</span><span data-lang="zh">电子邮件</span></strong>
+            <span class="ltr-text"><a href="mailto:khamsabaraka@gmail.com">khamsabaraka@gmail.com</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div>
+            <strong><span data-lang="en">WeChat</span><span data-lang="ar">WeChat</span><span data-lang="zh">WeChat微信</span></strong>
+            <span class="ltr-text">Loulanwaystation</span><br>
+            <span class="ltr-text">wxid_jrbal7mytto322</span><br>
+            <span class="ltr-text">wxid_tfkjn7ncde6t22</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Khamsa <span>Baraka</span></div>
+  <p>© 2025 Khamsa Baraka Company. <span data-lang="en">All rights reserved.</span><span data-lang="ar">جميع الحقوق محفوظة.</span><span data-lang="zh">版权所有。</span></p>
+  <div class="footer-links">
+    <a href="#about"><span data-lang="en">About</span><span data-lang="ar">من نحن</span><span data-lang="zh">关于</span></a>
+    <a href="#services"><span data-lang="en">Services</span><span data-lang="ar">الخدمات</span><span data-lang="zh">服务</span></a>
+    <a href="#contact"><span data-lang="en">Contact</span><span data-lang="ar">تواصل</span><span data-lang="zh">联系</span></a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function setLang(lang) {
+    // Swap body class
+    document.body.classList.remove('lang-en', 'lang-ar', 'lang-zh');
+    document.body.classList.add('lang-' + lang);
+
+    // Update html lang for RTL CSS rules
+    document.documentElement.lang = lang;
+
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const btnLang = btn.getAttribute('onclick').match(/'(\w+)'/)[1];
+      btn.classList.toggle('active', btnLang === lang);
+    });
+
+    // Update placeholders
+    document.querySelectorAll('[data-placeholder-' + lang + ']').forEach(el => {
+      el.placeholder = el.getAttribute('data-placeholder-' + lang);
+    });
+  }
+
+  // Default language is set via class="lang-en" on body tag
+
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.boxShadow =
+      window.scrollY > 50 ? '0 4px 24px rgba(0,0,0,0.4)' : 'none';
+  });
+
+  // International phone input - any country
+  window.addEventListener('load', () => {
+    const input = document.querySelector('#phone');
+    if (input && window.intlTelInput) {
+      window.intlTelInput(input, {
+        initialCountry: 'auto',
+        geoIpLookup: cb => fetch('https://ipapi.co/json').then(r=>r.json()).then(d=>cb(d.country_code)).catch(()=>cb('sa')),
+        preferredCountries: ['sa','ae','qa','bh','kw','om','cn','gb','us','in','pk'],
+        separateDialCode: true,
+        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js',
+      });
+    }
+  });
+</script>
+</body>
+</html>
